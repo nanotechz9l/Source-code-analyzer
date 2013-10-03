@@ -7,7 +7,7 @@ This script automatically scans C/C++ source files for banned/dangerous function
 Written by Rick Flores @nanotechz9l
 
 ![Screenshot](http://img10.imageshack.us/img10/7636/fpg5.png)
-![Screenshot](http://imageshack.us/f/600/to5y.png/)
+![Screenshot](http://img600.imageshack.us/img600/1108/to5y.png)
 
 ## Pre Reqs
 
