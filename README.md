@@ -21,10 +21,9 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 
  ![Screenshot](http://img600.imageshack.us/img600/1108/to5y.png)
 
-* Shell / Commandline (CLI) application allowing:
-	* Scans C/C++ files for known vulnerabilities.
-        * Provides a calculated score based on dangerous functions found in the source code.
-        * Provides vulnerability information, and code recommendations. 
+* Scans C/C++ files for known vulnerabilities.
+* Provides a calculated score based on dangerous functions found in the source code.
+* Provides vulnerability information, and code recommendations. 
 
 ## Requirements
 * Tested on ruby version/s:
