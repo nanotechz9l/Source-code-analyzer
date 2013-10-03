@@ -64,5 +64,5 @@ good_words = all_words.select{ |word| !dfuncs.include?(word) }
 good_percentage = ((good_words.length.to_f / all_words.length.to_f) * 100).to_i
 
 #Echo final results to user :::
-puts "#{good_percentage}% of functions are not dangerous" # this does not seem to be 100% accurate!
+puts "#{good_percentage}% of functions are not dangerous" # this now working as expected.
 puts "-- End of analysis\n\n"
