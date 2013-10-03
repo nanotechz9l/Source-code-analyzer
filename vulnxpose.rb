@@ -47,20 +47,20 @@ puts "Analyzing #{line_count} lines from #{ARGV[0]} file.".foreground(:white)
 
 File.open(ARGV[0]) do |f|
   f.each_line do |line|
-    if line =~ /sprintf/ # need to add regex support
+    if line =~ /sprintf/ # need to add regex support <-member to update dfuns aswell!!
       puts "\nThe following potentially dangerous methods were found:::".foreground(:red)
-      puts "Found sprintf: #{line}".foreground(:white)
+      puts "sprintf: #{line}".foreground(:white)
     end
   end
 end
 
 # Dangerous functions // expiremental!
-dfuncs = %w{sprintf strcpy}
+dfuncs = %w{sprintf}
 
-# Make a list of words from the input file that aren't dangerous functions,
-# count them, and work out the percentage against all words.
-all_words 	= text.scan(/\w+/)
-good_words 	= all_words.select{ |word| !dfuncs.include?(word) }
+# Make a list of words in the text that aren't dangerous,
+# count them, and work out the percentage against all words
+all_words = text.scan(/\w+/)
+good_words = all_words.select{ |word| !dfuncs.include?(word) }
 good_percentage = ((good_words.length.to_f / all_words.length.to_f) * 100).to_i
 
 #Echo final results to user :::
