@@ -49,31 +49,31 @@ line_count 	= lines.size
 text 		= lines.join
 
 # User greet!
-puts "TOP SECRET | Majic Eyes 0NLY".foreground(:red).bright.blink
+#puts "TOP SECRET | Majic Eyes 0NLY".foreground(:red).bright.blink
 
 # Echo the number of x(lines)
-puts "The test file has #{line_count} lines".foreground(:white)
+puts "Analyzing #{line_count} lines from #{ARGV[0]} file.".foreground(:white)
+
+File.open(ARGV[0]) do |f|
+  f.each_line do |line|
+    if line =~ /sprintf/
+      puts "\nThe following potentially dangerous methods were found:::".foreground(:red)
+      puts "Found sprintf: #{line}".foreground(:white)
+    end
+  end
+end
 
 # Dangerous functions
 dfuncs = %w{sprintf strcpy}
 
-# Make a list of words in the text that aren't stop words,
-# count them, and work out the percentage of non-stop words
-# against all words
+# Make a list of words from the input file that aren't dangerous functions,
+# count them, and work out the percentage against all words.
 all_words 	= text.scan(/\w+/)
 good_words 	= all_words.select{ |word| !dfuncs.include?(word) }
 good_percentage = ((good_words.length.to_f / all_words.length.to_f) * 100).to_i
 
-# Summarize the text by cherry picking some choice sentences
-sentences 	 = text.gsub(/\s+/, ' ').strip.split(/\.|\?|!/)
-sentences_sorted = sentences.sort_by { |sentence| sentence.length }
-one_third 	 = sentences_sorted.length / 3
-ideal_sentences  = sentences_sorted.slice(one_third, one_third + 1)
-ideal_sentences  = ideal_sentences.select { |sentence| sentence =~ /is|are/ }
-
 #Echo final results to user :::
 puts "#{good_percentage}% of functions are not dangerous"
-puts "Summary:\n" + ideal_sentences.join(". ")
-puts "The following dangerous methods were found:::".foreground(:red)
-puts "#{dfuncs}"
+#puts "Summary:\n" + ideal_sentences.join(". ")
+#puts "#{dfuncs}"
 puts "-- End of analysis\n\n"
