@@ -1,5 +1,5 @@
 
-Vulnxpose (Shedding light on those darn bugs...)
+Vulnxpose
 ==============
 
 This script automatically scans C/C++ source files for banned/dangerous functions.
@@ -22,19 +22,13 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
  ![Screenshot](http://img600.imageshack.us/img600/1108/to5y.png)
 
 * Shell / Commandline (CLI) application allowing:
-
-        * Following the success of flawfinder (.py script) I plan to add 160 dangerous functions to the vuln_c dictionary!
-
 	* Scans C/C++ files for known vulnerabilities.
-
         * Provides a calculated score based on dangerous functions found in the source code.
-
         * Provides vulnerability information, and code recommendations. 
 
 ## Requirements
 * Tested on ruby version/s:
 	* ruby 2.0.0p0 (2013-02-24 revision 39474)
-	
 	* ruby 1.9.3
 
 ## History
@@ -43,7 +37,7 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 
 ## To Do
 * Improve the regex search
-* Implement the flawfinder style vuln_c dictionary with 160 dangerous functions!!
+* Implement the flawfinder style vuln_c dictionary with 160 dangerous functions.
 * Add vulnerability information, and recommendations.
 * Fix an error when no ARGV is given at runtime.
 
