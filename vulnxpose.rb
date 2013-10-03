@@ -5,7 +5,7 @@ require 'rainbow'
 #   :::$Id: vulnxpose.rb 6191 20nano $
 #   :::Source k0de Analyzer koded by Nanotechz9l
 #   :::zet Xterm to 102x24 for better reZUltSss./|
-#   :::$Revision: 1.0.0.1 $
+#   :::$Revision: 0.1 $
 =end
 
 def b()
