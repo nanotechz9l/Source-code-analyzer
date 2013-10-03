@@ -7,7 +7,6 @@ This script automatically scans C/C++ source files for banned/dangerous function
 Written by Rick Flores @nanotechz9l
 
 ![Screenshot](http://img10.imageshack.us/img10/7636/fpg5.png)
-![Screenshot](http://img600.imageshack.us/img600/1108/to5y.png)
 
 ## Pre Reqs
 
@@ -19,12 +18,16 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 	./vulnxpose.rb vuln-test-file.c
 	
 ## Features
+
+ ![Screenshot](http://img600.imageshack.us/img600/1108/to5y.png)
+
 * Shell / Commandline (CLI) application allowing:
+
         * Following the success of flawfinder (.py script) I plan to add 160 dangerous functions to the vuln_c dictionary!
 
 	* Scans C/C++ files for known vulnerabilities.
 
-        * Provides a calculated score based on dangerous functions found in the dource code.
+        * Provides a calculated score based on dangerous functions found in the source code.
 
         * Provides vulnerability information, and code recommendations. 
 
