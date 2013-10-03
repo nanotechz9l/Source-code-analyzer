@@ -2,7 +2,7 @@
 require 'rainbow'
 
 =begin
-#   :::$Id: vulnxpose.rb 6191 2011-04-05 0126hrs nano $
+#   :::$Id: vulnxpose.rb 6191 20nano $
 #   :::Source k0de Analyzer koded by Nanotechz9l
 #   :::zet Xterm to 102x24 for better reZUltSss./|
 #   :::$Revision: 1.0.0.1 $
