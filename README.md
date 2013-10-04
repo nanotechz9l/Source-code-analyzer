@@ -31,6 +31,7 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 	* ruby 1.9.3
 
 ## History
+* 10/03/2013 - Added line number output.
 * 10/03/2013 - Added all 160 flawfinder dangerous functions.
 * 10/03/2013 - Added simple regex search to scan multiple functions vs one.
 * 10/02/2013 - Wrote the quick PoC.
@@ -38,8 +39,8 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 ## BUG LIST:
 * [X] SQUASHED - Improve the regex search (include all 160 flawfinder functions), and test
 * [X] SQUASHED - Add vulnerability information, and recommendations.
-* Improve the regex search findings output
-* Add line numbers for function in question to vulnerability information, and recommendations!
+* [X] SQUASHED - Improve the regex search findings output
+* [X] SQUASHED - Add line numbers for function in question to vulnerability information, and recommendations!
 * Update dfuncs to include the newly added c_rules 160 dangerous functions!
 * Fix an error when no ARGV is given at runtime.
 
