@@ -2,7 +2,7 @@
 Vulnxpose
 ==============
 
-This script automatically scans C/C++ source files for banned/dangerous functions.
+Scans C/C++ source code files for known vulnerabilities including buffer overflows, race conditions, weak crypto, chroot jail configs ... & more).
 
 Written by Rick Flores @nanotechz9l
 
@@ -21,7 +21,7 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 
  ![Screenshot](http://img600.imageshack.us/img600/1108/to5y.png)
 
-* Scans C/C++ files for known vulnerabilities.
+* Scans C/C++ files for known vulnerabilities (buffer overflows, race conditions, weak crypto, chroot jail config... & more).
 * Provides a calculated score based on dangerous functions found in the source code.
 * Provides vulnerability information, and code recommendations. 
 
@@ -31,14 +31,15 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 	* ruby 1.9.3
 
 ## History
-* 10/02/2013 - Wrote the quick PoC.
+* 10/03/2013 - Added all 160 flawfinder dangerous functions.
 * 10/03/2013 - Added simple regex search to scan multiple functions vs one.
+* 10/02/2013 - Wrote the quick PoC.
 
-## To Do
-* Improve the regex search (include all 160 functions), and test
+## BUG LIST:
+* [X] SQUASHED - Improve the regex search (include all 160 flawfinder functions), and test
+* [X] SQUASHED - Add vulnerability information, and recommendations.
 * Improve the regex search findings output
-* Add vulnerability information, and recommendations.
-* Add line numbers to vulnerability information, and recommendations!
+* Add line numbers for function in question to vulnerability information, and recommendations!
 * Update dfuncs to include the newly added c_rules 160 dangerous functions!
 * Fix an error when no ARGV is given at runtime.
 
