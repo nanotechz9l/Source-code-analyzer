@@ -736,13 +736,18 @@ puts "\nStep 2/3:".foreground(:white).underline.bright << " Starting security an
   end
       
 # TODO: This must be identical to the above regex in order for the scoring to be 100% accurate! I ALSO still need to add all 160 functions!!!
-  dfuncs = %w{ sprintf strcpy strcpyA scanf strcpy strcpyA strcpyW wcscpy _tcscpy _mbscpy StrCpyW lstrcpy lstrcpyA lstrcpyW
-               _tccpy _mbccpy _ftcscpy strncpy wcsncpy _tcsncpy _mbsncpy _mbsnbcpy StrCpyN StrCpyNA StrCpyNW StrNCpy 
-               strcpynA StrNCpyA StrNCpyW lstrcpyn lstrcpynA lstrcpynW strcat strcatA strcatW wcscat _tcscat _mbscat
-               StrCat StrCatA StrCatW lstrcat lstrcatA lstrcatW StrCatBuff StrCatBuffA StrCatBuffW StrCatChainW _tccat _mbccat 
-               _ftcscat strncat wcsncat _tcsncat _mbsncat _mbsnbcat StrCatN StrCatNA StrCatNW StrNCat StrNCatA StrNCatW lstrncat
-               lstrcatnA lstrcatnW lstrcatn sprintfW sprintfA wsprintf wsprintfW wsprintfA sprintf swprintf _stprintf wvsprintf
-               wvsprintfA wvsprintfW vsprintf _vstprintf vswprintf }
+  dfuncs = %w{ strcpy lstrcpy wcscpy _tcscpy _mbscpy memcpy CopyMemory bcopy strcat lstrcat wcscat _tcscat _mbscat strncpy lstrcpyn wcsncpy _tcsncpy _mbsnbcpy 
+               strncat lstrcatn wcsncat _tcsncat _mbsnbcat strccpy strcadd char TCHAR wchar_t gets _getts sprintf vsprintf swprintf vswprintf _stprintf _vstprintf
+               printf vprintf vwprintf vfwprintf _vtprintf fprintf vfprintf _ftprintf _vftprintf syslog snprintf vsnprintf _snprintf _sntprintf _vsntprintf
+	       scanf vscanf wscanf _tscanf fscanf sscanf vsscanf vfscanf _ftscanf strlen wcslen _tcslen _mbslen MultiByteToWideChar streadd strecpy strtrns
+	       realpath getopt getopt_long getpass getwd getchar fgetc getc read _gettc access chown chgrp chmod vfork readlink tmpfile tmpnam tempnam
+	       mktemp mkstemp fopen open umask GetTempFileName execl execlp execle execv execvp system popen WinExec ShellExecute CreateProcessAsUser 
+	       CreateProcessWithLogon CreateProcess atoi|atol drand48 erand48 jrand48 lcong48 lrand48 mrand48 nrand48 random seed48 setstate srand strfry srandom
+	       crypt EVP_des_ecb EVP_des_cbc EVP_des_cfb EVP_des_ofb EVP_desx_cbc EVP_rc4_40 EVP_rc2_40_cbc EVP_rc2_64_cbc chroot getenv curl_getenv g_get_home_dir
+	       g_get_tmp_dir RpcImpersonateClient ImpersonateLoggedOnUser CoImpersonateClient ImpersonateNamedPipeClient ImpersonateDdeClientWindow ImpersonateSecurityContext
+               SetThreadToken InitializeCriticalSection EnterCriticalSection LoadLibrary LoadLibraryEx SetSecurityDescriptorDacl AddAccessAllowedAce getlogin cuserid getpw getpass
+	       gsignal ssignal memalign ulimit usleep recv recvfrom recvmsg fread readv
+             }
 
 # Make a list of words in the text that aren't dangerous,
 # count them, and work out the percentage against all words
