@@ -54,10 +54,11 @@ words   = 0
 chars   = 0
 minline = 0
 maxline = 0
-
 filename = ARGV[0]
+
 File.new(filename, "r").each { |line| results << line }
 
+puts "\n\nNumber of dangerous functions in C/C++ ruleset: 160" #+ "#{dfuncs.count}" Fix this so the number of functions is dynamically shown at runtime.
 puts "\nStep 1/3:".foreground(:white).underline.bright << " Gathering basic file information from #{filename}...".foreground(:cyan)
 puts "#{filename} has the following attributes:"
 puts " -> #{results.size} lines."
@@ -760,3 +761,5 @@ puts "Step 3/3:".foreground(:white).underline.bright << " Ready to display the o
 puts "Score guidelines are: <= (less than) 98% questionable code, >= (greater than) 99% secure code.".foreground(:cyan)
 puts "\nFinal security score for \"#{filename}\" is" << " #{good_percentage}%".foreground(:red).blink
 puts "-- End of analysis\n\n"
+puts "[!] This is merely a quick static test against 160 dangerous functions. I recommend you follow a secure SDLC before deploying your code.".foreground(:yellow).bright
+puts "[!] Not every hit found is necessarily a security vulnerability. There may also be other uncovered security vulnerabilities; review your code!".foreground(:yellow).bright
