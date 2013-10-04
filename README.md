@@ -35,9 +35,11 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 * 10/03/2013 - Added simple regex search to scan multiple functions vs one.
 
 ## To Do
-* Improve the regex search
-* Implement the flawfinder style vuln_c dictionary with 160 dangerous functions.
+* Improve the regex search (include all 160 functions), and test
+* Improve the regex search findings output
 * Add vulnerability information, and recommendations.
+* Add line numbers to vulnerability information, and recommendations!
+* Update dfuncs to include the newly added c_rules 160 dangerous functions!
 * Fix an error when no ARGV is given at runtime.
 
 ## Credits
