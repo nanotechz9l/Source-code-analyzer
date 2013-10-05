@@ -736,7 +736,7 @@ puts "\nStep 2/3:".foreground(:white).underline.bright << " Starting security an
     end
   end
       
-# TODO: This must be identical to the above regex in order for the scoring to be 100% accurate! I ALSO still need to add all 160 functions!!!
+# TODO: This must be identical to the above in order for the scoring to be 100% accurate!
   dfuncs = %w{ strcpy lstrcpy wcscpy _tcscpy _mbscpy memcpy CopyMemory bcopy strcat lstrcat wcscat _tcscat _mbscat strncpy lstrcpyn wcsncpy _tcsncpy _mbsnbcpy 
                strncat lstrcatn wcsncat _tcsncat _mbsnbcat strccpy strcadd char TCHAR wchar_t gets _getts sprintf vsprintf swprintf vswprintf _stprintf _vstprintf
                printf vprintf vwprintf vfwprintf _vtprintf fprintf vfprintf _ftprintf _vftprintf syslog snprintf vsnprintf _snprintf _sntprintf _vsntprintf
@@ -752,14 +752,20 @@ puts "\nStep 2/3:".foreground(:white).underline.bright << " Starting security an
 
 # Make a list of words in the text that aren't dangerous,
 # count them, and work out the percentage against all words
-all_words = text.scan(/\w+/)
-good_words = all_words.select{ |word| !dfuncs.include?(word) }
+all_words       = text.scan(/\w+/)
+good_words      = all_words.select{ |word| !dfuncs.include?(word) }
 good_percentage = ((good_words.length.to_f / all_words.length.to_f) * 100).to_i
 
 # Echo final results to user :::
 puts "Step 3/3:".foreground(:white).underline.bright << " Ready to display the overall percentage score for #{filename}.".foreground(:cyan)
 puts "Score guidelines are: <= (less than) 98% questionable code, >= (greater than) 99% secure code.".foreground(:cyan)
-puts "\nFinal security score for \"#{filename}\" is" << " #{good_percentage}%".foreground(:red).blink
+
+if good_percentage <= 99
+  print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Your code sux!\n".upcase
+  elsif good_percentage >=100
+  print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Good job!. Your on your way to coding securely, and deploying hardened code!\n".upcase
+end
+
 puts "-- End of analysis\n\n"
 puts "[!] This is merely a quick static test against 160 dangerous functions. I recommend you follow a secure SDLC before deploying your code.".foreground(:yellow).bright
 puts "[!] Not every hit found is necessarily a security vulnerability. There may also be other uncovered security vulnerabilities; review your code!".foreground(:yellow).bright
