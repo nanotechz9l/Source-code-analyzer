@@ -31,7 +31,9 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 	* ruby 1.9.3
 
 ## History
-* 10/05/2013 - I WILL NO LINGER UPDATE THIS SECTION. VISIT THE GITHUB PAGE FOR ALL HISTORY/REVISION INFO!!
+* 10/05/2013 - I WILL NO LONGER UPDATE THIS README file. VISIT THE ISSUES PAGE FOR ALL HISTORY/REVISION INFO!!
+*            - https://github.com/nanotechz9l/Source-code-analyzer/issues?page=1&state=open
+
 * 10/04/2013 - Minor update to user recommendations at the end of the script.
 * 10/04/2013 - Updated dfuncs to include all flawfinders 160 dangerous functions
 * 10/03/2013 - Added line number output.
@@ -40,13 +42,14 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 * 10/02/2013 - Wrote the quick PoC.
 
 ## BUG LIST:
+* I WILL NO LONGER UPDATE THIS BUG SECTION. TO STAY UP TO DATE ON BUGS/ENHANCEMENTS VISIT THE GITHUB ISSUE PAGE:
+* https://github.com/nanotechz9l/Source-code-analyzer/issues?state=open
+
 * [X] SQUASHED - Improve the regex search (include all 160 flawfinder functions), and test
 * [X] SQUASHED - Add vulnerability information, and recommendations.
 * [X] SQUASHED - Improve the regex search findings output
 * [X] SQUASHED - Add line numbers for function in question to vuln info, & recommendations!
 * [X] SQUASHED - Update dfuncs to include the newly added c_rules 160 dangerous functions (makes scoring 100% accurate)!
-* I WILL NO LONGER UPDATE THIS BUG SECTION. TO STAY UP TO DATE ON BUGS/ENHANCEMENTS VISIT THE GITHUB ISSUE PAGE:
-* https://github.com/nanotechz9l/Source-code-analyzer/issues?state=open
 
 ## Credits
 * Rick Flores (@nanotechz9l) -- 0xnanoquetz9l[--at--]gmail.com
