@@ -15,7 +15,7 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 	gem install rainbow
 	
 ## Usage
-	./vulnxpose.rb vuln-test-file.c
+	./vulnxpose.rb vuln.c
 	
 ## Features
 
@@ -31,6 +31,7 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 	* ruby 1.9.3
 
 ## History
+* 10/05/2013 - I WILL NO LINGER UPDATE THIS SECTION. VISIT THE GITHUB PAGE FOR ALL HISTORY/REVISION INFO!!
 * 10/04/2013 - Minor update to user recommendations at the end of the script.
 * 10/04/2013 - Updated dfuncs to include all flawfinders 160 dangerous functions
 * 10/03/2013 - Added line number output.
@@ -44,8 +45,8 @@ You MUST install the rainbow gem for the pretty colorized output seen above:
 * [X] SQUASHED - Improve the regex search findings output
 * [X] SQUASHED - Add line numbers for function in question to vuln info, & recommendations!
 * [X] SQUASHED - Update dfuncs to include the newly added c_rules 160 dangerous functions (makes scoring 100% accurate)!
-* Fix an error when no ARGV is given at runtime.
-* Update dfuncs to output the number of C/C++ functions dynamically upon runtime vs hardcoded!
+* I WILL NO LONGER UPDATE THIS BUG SECTION. TO STAY UP TO DATE ON BUGS/ENHANCEMENTS VISIT THE GITHUB ISSUE PAGE:
+* https://github.com/nanotechz9l/Source-code-analyzer/issues?state=open
 
 ## Credits
 * Rick Flores (@nanotechz9l) -- 0xnanoquetz9l[--at--]gmail.com
