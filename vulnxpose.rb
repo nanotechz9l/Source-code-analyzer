@@ -763,7 +763,7 @@ puts "Score guidelines are: <= (less than) 98% questionable code, >= (greater th
 if good_percentage <= 99
   print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Your code sux!\n".upcase
   elsif good_percentage >=100
-  print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Good job!. Your on your way to coding securely, and deploying hardened code!\n".upcase
+  print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Good job on passing the test! Either your code is secure or it does not contain any of the 160 dangerous functions above that this test scores against. Either way, manually checking your code is recommended.\n".upcase
 end
 
 puts "-- End of analysis\n\n"
