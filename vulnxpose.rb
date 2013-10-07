@@ -7,6 +7,7 @@ require 'rainbow'; require 'english'
 #   :::zet Xterm to 102x24 for better reZUltSss./|
 #   :::$Revision: 0.1 $
 #
+#
 # c_rules file                           ref: http://www.dwheeler.com/flawfinder/
 # Microsoft banned functions             ref: http://msdn.microsoft.com/en-us/library/bb288454.aspx
 # Analyze file information               ref: http://redneckprogrammer.blogspot.com/2007/09/word-character-line-counter-ruby-script.html
