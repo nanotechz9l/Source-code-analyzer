@@ -56,9 +56,22 @@ minline = 0
 maxline = 0
 filename = ARGV[0]
 
+  dfuncs = %w{ strcpy lstrcpy wcscpy _tcscpy _mbscpy memcpy CopyMemory bcopy strcat lstrcat wcscat _tcscat _mbscat strncpy lstrcpyn wcsncpy _tcsncpy _mbsnbcpy 
+               strncat lstrcatn wcsncat _tcsncat _mbsnbcat strccpy strcadd char TCHAR wchar_t gets _getts sprintf vsprintf swprintf vswprintf _stprintf _vstprintf
+               printf vprintf vwprintf vfwprintf _vtprintf fprintf vfprintf _ftprintf _vftprintf syslog snprintf vsnprintf _snprintf _sntprintf _vsntprintf
+	       scanf vscanf wscanf _tscanf fscanf sscanf vsscanf vfscanf _ftscanf strlen wcslen _tcslen _mbslen MultiByteToWideChar streadd strecpy strtrns
+	       realpath getopt getopt_long getpass getwd getchar fgetc getc read _gettc access chown chgrp chmod vfork readlink tmpfile tmpnam tempnam
+	       mktemp mkstemp fopen open umask GetTempFileName execl execlp execle execv execvp system popen WinExec ShellExecute CreateProcessAsUser 
+	       CreateProcessWithLogon CreateProcess atoi|atol drand48 erand48 jrand48 lcong48 lrand48 mrand48 nrand48 random seed48 setstate srand strfry srandom
+	       crypt EVP_des_ecb EVP_des_cbc EVP_des_cfb EVP_des_ofb EVP_desx_cbc EVP_rc4_40 EVP_rc2_40_cbc EVP_rc2_64_cbc chroot getenv curl_getenv g_get_home_dir
+	       g_get_tmp_dir RpcImpersonateClient ImpersonateLoggedOnUser CoImpersonateClient ImpersonateNamedPipeClient ImpersonateDdeClientWindow ImpersonateSecurityContext
+               SetThreadToken InitializeCriticalSection EnterCriticalSection LoadLibrary LoadLibraryEx SetSecurityDescriptorDacl AddAccessAllowedAce getlogin cuserid getpw getpass
+	       gsignal ssignal memalign ulimit usleep recv recvfrom recvmsg fread readv
+             }
+
 File.new(filename, "r").each { |line| results << line }
 
-puts "\n\nNumber of dangerous functions in C/C++ ruleset: 160" #+ "#{dfuncs.count}" Fix this so the number of functions is dynamically shown at runtime.
+puts "\n\nNumber of dangerous functions in C/C++ ruleset: " + "#{dfuncs.count}" #Fix this so the number of functions is dynamically shown at runtime.
 puts "\nStep 1/3:".foreground(:white).underline.bright << " Gathering basic file information from #{filename}...".foreground(:cyan)
 puts "#{filename} has the following attributes:"
 puts " -> #{results.size} lines."
@@ -735,23 +748,9 @@ puts "\nStep 2/3:".foreground(:white).underline.bright << " Starting security an
        puts "#{line}".foreground(:white).bright
     end
   end
-      
-# TODO: This must be identical to the above in order for the scoring to be 100% accurate!
-  dfuncs = %w{ strcpy lstrcpy wcscpy _tcscpy _mbscpy memcpy CopyMemory bcopy strcat lstrcat wcscat _tcscat _mbscat strncpy lstrcpyn wcsncpy _tcsncpy _mbsnbcpy 
-               strncat lstrcatn wcsncat _tcsncat _mbsnbcat strccpy strcadd char TCHAR wchar_t gets _getts sprintf vsprintf swprintf vswprintf _stprintf _vstprintf
-               printf vprintf vwprintf vfwprintf _vtprintf fprintf vfprintf _ftprintf _vftprintf syslog snprintf vsnprintf _snprintf _sntprintf _vsntprintf
-	       scanf vscanf wscanf _tscanf fscanf sscanf vsscanf vfscanf _ftscanf strlen wcslen _tcslen _mbslen MultiByteToWideChar streadd strecpy strtrns
-	       realpath getopt getopt_long getpass getwd getchar fgetc getc read _gettc access chown chgrp chmod vfork readlink tmpfile tmpnam tempnam
-	       mktemp mkstemp fopen open umask GetTempFileName execl execlp execle execv execvp system popen WinExec ShellExecute CreateProcessAsUser 
-	       CreateProcessWithLogon CreateProcess atoi|atol drand48 erand48 jrand48 lcong48 lrand48 mrand48 nrand48 random seed48 setstate srand strfry srandom
-	       crypt EVP_des_ecb EVP_des_cbc EVP_des_cfb EVP_des_ofb EVP_desx_cbc EVP_rc4_40 EVP_rc2_40_cbc EVP_rc2_64_cbc chroot getenv curl_getenv g_get_home_dir
-	       g_get_tmp_dir RpcImpersonateClient ImpersonateLoggedOnUser CoImpersonateClient ImpersonateNamedPipeClient ImpersonateDdeClientWindow ImpersonateSecurityContext
-               SetThreadToken InitializeCriticalSection EnterCriticalSection LoadLibrary LoadLibraryEx SetSecurityDescriptorDacl AddAccessAllowedAce getlogin cuserid getpw getpass
-	       gsignal ssignal memalign ulimit usleep recv recvfrom recvmsg fread readv
-             }
 
 # Make a list of words in the text that aren't dangerous,
-# count them, and work out the percentage against all words
+# count them, and work out the percentage against all words based on dfuncs above
 all_words       = text.scan(/\w+/)
 good_words      = all_words.select{ |word| !dfuncs.include?(word) }
 good_percentage = ((good_words.length.to_f / all_words.length.to_f) * 100).to_i
