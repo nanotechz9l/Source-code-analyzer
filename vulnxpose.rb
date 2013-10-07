@@ -72,7 +72,7 @@ filename = ARGV[0]
 
 File.new(filename, "r").each { |line| results << line }
 
-puts "\n\nNumber of dangerous functions in C/C++ ruleset: " + "#{dfuncs.count}" #Fix this so the number of functions is dynamically shown at runtime.
+puts "\n\nNumber of dangerous functions in C/C++ ruleset: " + "#{dfuncs.count}" #Number of dangerous functions is dynamically shown at runtime.
 puts "\nStep 1/3:".foreground(:white).underline.bright << " Gathering basic file information from #{filename}...".foreground(:cyan)
 puts "#{filename} has the following attributes:"
 puts " -> #{results.size} lines."
@@ -761,7 +761,7 @@ puts "Step 3/3:".foreground(:white).underline.bright << " Ready to display the o
 puts "Score guidelines are: <= (less than) 98% questionable code, >= (greater than) 99% secure code.".foreground(:cyan)
 
 if good_percentage <= 99
-  print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Your code sux!\n".upcase
+  print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Your code failed this security test!\n".upcase
   elsif good_percentage >=100
   print "\nFinal security score for \"#{filename}\" is " << "#{good_percentage}%".foreground(:red).blink << " <-- Good job on passing the test! Either your code is secure or it does not contain any of the 160 dangerous functions above that this test scores against. Either way, manually checking your code is recommended.\n".upcase
 end
