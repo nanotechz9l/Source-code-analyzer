@@ -33,17 +33,19 @@ text =''
 # TODO: Fix the no ARGV error :30: `readlines': no implicit conversion of nil into String (TypeError)
 # File implements a readlines method that reads an entire file into an array line by line 
 # You can use this both to count the lines and join them all into a single string
-lines      = File.readlines(ARGV[0]) # or I could use ARGV.first which is the same thing :)
-line_count = lines.size
-text       = lines.join
-v()
 
-if not ARGV[0]
- print "\nMISSING input file!".foreground(:red).bright
- print "\nUsage: #{$0} vulnfile.c\n\n".foreground(:white).bright
- exit(0)
+ unless ARGV.length == 1
+ puts "\nMISSING input file!".foreground(:red).bright
+ puts "\nUsage: ".foreground(:white).bright + "#{$0} vulnfile.c\n\n".foreground(:white).bright.blink
+ exit
  v()
-end
+ end
+ 
+ lines      = File.readlines(ARGV[0]) # or I could use ARGV.first which is the same thing :)
+ line_count = lines.size
+ text       = lines.join
+ v()
+
 
 # User greet!
 puts "\n\tVULNXPOSE v0.1 written by ".foreground(:red) << "Rick <@nanotechz9l> Flores".foreground(:white)
