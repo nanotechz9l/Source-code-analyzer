@@ -13,6 +13,7 @@ Written by Rick Flores @nanotechz9l
 You MUST install the rainbow gem for the pretty colorized output seen above:
 
 	gem install rainbow
+        gem install english
 	
 ## Usage
 	./vulnxpose.rb vuln.c
