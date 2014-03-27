@@ -10,7 +10,7 @@ Written by Rick Flores @nanotechz9l
 
 ## Pre Reqs
 
-You MUST install the rainbow gem for the pretty colorized output seen above:
+You MUST install the rainbow gem for the pretty colorized output seen above, and the english gem for outputting line numbers when errors are found!
 
 	gem install rainbow english
 	
