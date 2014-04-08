@@ -30,7 +30,7 @@ end
 # Kreate the variable text
 text =''
 
-# TODO: Fix the no ARGV error :30: `readlines': no implicit conversion of nil into String (TypeError)
+# TODO: See issues page at: https://github.com/nanotechz9l/Source-code-analyzer/issues?state=open
 # File implements a readlines method that reads an entire file into an array line by line 
 # You can use this both to count the lines and join them all into a single string
 
