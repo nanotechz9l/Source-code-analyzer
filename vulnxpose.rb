@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'rainbow'; require 'english'
+require 'rainbow/ext/string'; require 'english'
 
 =begin
 #   :::$Id: vulnxpose.rb 6191 20nano $
